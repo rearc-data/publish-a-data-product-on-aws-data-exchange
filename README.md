@@ -1,19 +1,26 @@
-## Publish a data product on AWS Data Exchange
+# Getting started with publishing a data product on AWS Data Exchange
 
-This repository describes how to publish a data product on AWS Data Exchange service. For starters, what is AWS Data Exchange?
+### Targeted Audience
+Data Providers who are looking to publish their data products on the AWS Data Exchange service. 
 
-> [AWS Data Exchange (ADX)](https://aws.amazon.com/data-exchange/) is a data marketplace that makes it easy for AWS customers to securely find, subscribe to, and use third-party data in the cloud.
+For starters, what is AWS Data Exchange?
 
-> **If you are a data provider**, AWS Data Exchange makes it easy to reach the millions of AWS customers migrating to the cloud by removing the need to build and maintain infrastructure for data storage, delivery, billing, and entitling. AWS Data Exchange also makes it easy for qualified data providers to securely package, license, and deliver data products to millions of AWS customers worldwide.
+> [AWS Data Exchange](https://aws.amazon.com/data-exchange/) is a data marketplace that makes it easy for AWS customers to securely find, subscribe to, and use third-party data in the cloud.
 
-> **If you are a data subscriber**, you can easily browse the AWS Data Exchange catalog to find hundreds of relevant and up-to-date data products covering a wide range of industries, including financial services, healthcare, life sciences, geospatial, consumer, media & entertainment, and more. Once subscribed to a data product, you can use the AWS Data Exchange API to load data directly into Amazon S3 and then analyze it with a wide variety of AWS analytics and machine learning services.
+> **If you are a data provider**, AWS Data Exchange (ADX) makes it easy to reach millions of AWS customers migrating to the cloud by removing the need to build and maintain infrastructure for data storage, delivery, billing, and entitlement. ADX also makes it easy for qualified data providers to securely package, license, and deliver data products to millions of AWS customers worldwide.
 
-Rearc is a data provider and one of the launch partners with the AWS Data Exchange service. [Here](https://aws.amazon.com/marketplace/search/results?page=1&filters=VendorId&VendorId=a8a86da2-b2d1-4fae-992d-03494e90590b&searchTerms=rearc&category=d5a43d97-558f-4be7-8543-cce265fe6d9d) is a list of data products published by Rearc on AWS Data Exchange service.
+> **If you are a data subscriber**, you can easily browse the ADX catalog to find hundreds of relevant and up-to-date data products covering a wide range of industries, including financial services, healthcare, life sciences, geospatial, consumer, media & entertainment, and more. Once subscribed to a data product, you can use the ADX API to load data directly into Amazon S3 and then analyze it with a wide variety of AWS analytics and machine learning services.
 
-If you are a data provider looking to leverage AWS Data Exchange service to sell your data product, it will typically involve sourcing the data, performing necessary data transformation to be able to make the data useful to your consumers, creating a dataset on ADX, creating automatic revisions and finally publishing a data product on ADX. In this example, we take a free, publicly available open dataset and publish a data product on ADX. This repository contains all the necessary code and automation to be able to source the data, perform data transformation and interact with ADX to publish a new data product.
+[Rearc](https://www.rearc.io) is a data provider and one of the ADX launch partners. Products published by Rearc on ADX can be found [here](https://aws.amazon.com/marketplace/search/results?page=1&filters=VendorId&VendorId=a8a86da2-b2d1-4fae-992d-03494e90590b&searchTerms=rearc&category=d5a43d97-558f-4be7-8543-cce265fe6d9d).
 
-## Getting Started
-As explained earlier, in this example we are using a free, publicly available open dataset for `COVID-19 - World Confirmed Cases, Deaths, and Testing` data from [Our World in Data](https://github.com/owid/covid-19-data/tree/master/public/data/). This dataset is a collection of the COVID-19 data. It is updated daily and includes data on confirmed cases, deaths, and testing. It is an up-to-date data on confirmed cases, deaths, and testing, throughout the duration of the COVID-19 pandemic.
+If you are looking to make your data available to customers via ADX, it will typically involve (1) sourcing the data, (2) transforming the data to make it useful for consumers, (3) creating a dataset on ADX, (4) creating automatic revisions and, (5) finally publishing the data product. 
+
+In this example, we will walk you through taking a free, publicly available open dataset and publishing it as a data product on ADX. This repository contains all the necessary code and automation to be able to source the data, perform data transformation and interact with ADX to publish a new data product.
+
+## 1. Source the data
+As an example, we are using a free, publicly available open dataset for `COVID-19 - World Confirmed Cases, Deaths, and Testing` from [Our World in Data](https://github.com/owid/covid-19-data/tree/master/public/data/). This dataset is updated daily and provides up-to-date data on confirmed cases, deaths, and testing, for the COVID-19 pandemic till date.
+
+Clone this repository. 
 
 #### Directory Layout
 
@@ -24,35 +31,32 @@ As explained earlier, in this example we are using a free, publicly available op
 │   │   ├── lambda_function.py      # Code to interact with ADX for creating a dataset and revision
 │   │   ├── source_data.py          # Code to acquire dataset and perform necessary data transformation
 │   │   ├── requirements.txt        # Code dependencies
-│   ├── pre-processing-cfn.yaml     # CloudFormation code to setup data provider automation
-├── dataset-description.md          # Dataset description that goes on ADX
-├── product-description.md          # Product description that goes on ADX
-├── init.sh                         # Initialization script to start the automation
+│   ├── pre-processing-cfn.yaml     # CloudFormation template to setup data provider automation
+├── dataset-description.md          # Dataset description that goes on the ADX listing
+├── product-description.md          # Product description that goes on the ADX listing
+├── init.sh                         # Initialization script to kick-off the automation
 ├── README.md
 └── .gitignore
 ```
 
-- Source Files: The actual data provider side source code and automation code is stored inside the `pre-processing` folder. This folder contains python code to acquire the dataset, perform necessary data transformation and code to interact with ADX service to publish a dataset and a new revision. This folder also stores `pre-processing-cfn.yaml` file that is the CloudFormation code to setup pre-processing-code (python code) to run in AWS Lambda Function with CloudWatch scheduled events rule to trigger AWS Lambda function periodically.
-- Dataset Description: The description of the dataset that needs to be created on ADX is stored inside the `dataset-description.md` file.
-- Product Description: The description of the data product that needs to be created on ADX is stored inside the `product-description.md` file.
+- Source Files: The actual data provider side source code and automation is stored inside the `pre-processing` folder. This folder contains python code to acquire the dataset, perform necessary data transformation and interact with ADX to publish a dataset and a new dataset revision. This folder also stores `pre-processing-cfn.yaml` that is the CloudFormation template to setup the pre-processing-code (python code) to run in AWS Lambda with CloudWatch Scheduled Events rule to trigger AWS Lambda functions periodically.
+- Dataset Description: Description of the dataset is stored in `dataset-description.md` file.
+- Product Description: Description of the data product is stored in `product-description.md` file.
 - Initialization Script: The `init.sh` script triggers the entire workflow as explained below.
 
 #### Prerequisites:
-- [Python](https://www.python.org), [Pip](https://pypi.org/project/pip/), [JQ](https://stedolan.github.io/jq/), [AWS CLI V2](https://aws.amazon.com/cli/) and other related developer tools installed and configured on your device
+- [Python](https://www.python.org), [Pip](https://pypi.org/project/pip/), [JQ](https://stedolan.github.io/jq/), [AWS CLI V2](https://aws.amazon.com/cli/) and other related developer tools installed and configured on your local developer workstation
 - AWS credentials with appropriate permissions to create necessary ADX resources
-- Create pre-processing code to acquire source data and perform any necessary data transformation ([source_data.py](./pre-processing/pre-processing-code/source_data.py)) and code to interact with ADX service to publish dataset and a new revision ([lambda_function.py](./pre-processing/pre-processing-code/lambda_function.py))
-- Create pre-processing CloudFormation template ([pre-processing-cfn.yaml](./pre-processing/pre-processing-cfn.yaml))
-- Create dataset description markdown file ([dataset-description.md](./dataset-description.md))
-- Create product markdown file ([product-description.md](./product-description.md))
 
-#### Execute init script
-Once, you have the pre-processing code written and tested locally, you can run the init shell script to move the pre-processing code to S3, create dataset on ADX, create the first revision etc. The init script requires following parameters to be passed:
+## 2. Execute init script
+Once, you have the pre-processing code written/updated and tested locally, you can run the init shell script to move the pre-processing code to S3, create a dataset on ADX and create the first dataset revision. 
 
-- Source S3 Bucket: This is the source S3 bucket where the dataset and pre-processing automation code resides. For Rearc datasets, it's `rearc-data-provider`
-- Dataset Name: This is the S3 prefix where the dataset and pre-processing automation code resides. For this e.g., it's `covid-19-world-cases-deaths-testing`
-- Product Name: This is the product name on ADX. For this e.g., it's `COVID-19 - World Confirmed Cases, Deaths, and Testing`
-- Product ID: Since, ADX does not provide APIs to programmatically create Products, it can be blank for now
-- Region: This is the AWS region where the product will be listed on ADX. For this e.g., it's `us-east-1`
+The init script requires following parameters to be passed:
+- Source S3 Bucket: where the dataset and pre-processing automation code resides. For Rearc datasets, it's `rearc-data-provider`
+- Dataset Name: S3 prefix where the dataset and pre-processing automation code resides. For this example, we are using `covid-19-world-cases-deaths-testing`
+- Product Name: product name for the ADX listing. For this example, we are using `COVID-19 - World Confirmed Cases, Deaths, and Testing`
+- Product ID: Since, ADX does not provide APIs to programmatically create Products, it can be left blank for now
+- Region: AWS region where the product will be listed on ADX. For this example, we are using `us-east-1`
 
 The init script also allows an optional `--profile` parameter to be passed in if you wish to use an alternative set of AWS credentials instead of your default profile.
 
