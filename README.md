@@ -45,7 +45,7 @@ As explained earlier, in this example we are using a free, publicly available op
 - Create dataset description markdown file ([dataset-description.md](./dataset-description.md))
 - Create product markdown file ([product-description.md](./product-description.md))
 
-### Execute init script
+#### Execute init script
 Once, you have the pre-processing code written and tested locally, you can run the init shell script to move the pre-processing code to S3, create dataset on ADX, create the first revision etc. The init script requires following parameters to be passed:
 
 - Source S3 Bucket: This is the source S3 bucket where the dataset and pre-processing automation code resides. For Rearc datasets, it's `rearc-data-provider`
@@ -70,7 +70,7 @@ The init script also allows an optional `--profile` parameter to be passed in if
 - Executes the pre-processing Lambda function that acquires the source dataset, copies the dataset to S3 and creates the first revision on ADX
 - Destroys the CloudFormation stack
 
-### Publishing the product on ADX
+#### Publishing the product on ADX
 At this point, dataset and the first revision is fully created on ADX. You are now ready to create the new product on ADX. Unfortunately, at this point ADX does not provide APIs to programmatically create Products so, you will have to create the product and link the dataset manually using AWS console. Once, the product is created, grab the `Product ID` from ADX console and re-run the pre-processing CloudFormation stack by passing all necessary parameters including the product id. Once the CloudFormation stack is successfully created, based on the CloudWatch scheduled rules, pre-processing Lambda function will automatically create new dataset revisions and publish it to ADX.
 
 ## Contact/Support Information
