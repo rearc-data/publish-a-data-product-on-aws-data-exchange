@@ -57,7 +57,7 @@ Once, you have the pre-processing code written and tested locally, you can run t
 The init script also allows an optional `--profile` parameter to be passed in if you wish to use an alternative set of AWS credentials instead of your default profile.
 
 #### Here is how you can run the init script  
-`./init.sh --s3-bucket "rearc-data-provider" --dataset-name "covid-19-world-cases-deaths-testing" --product-name "COVID-19 - World Confirmed Cases, Deaths, and Testing" --product-id "blank" --region "us-east-1"`
+`./init.sh --s3-bucket "rearc-data-provider" --dataset-name "covid-19-world-cases-deaths-testing" --product-name "COVID-19 - World Confirmed Cases, Deaths, and Testing" --product-id "blank_for_initial_run" --region "us-east-1"`
 
 #### If the optional profile parameter is needed, add the following:
 `--profile "rearc-adx-alt"`
@@ -71,7 +71,15 @@ The init script also allows an optional `--profile` parameter to be passed in if
 - Destroys the CloudFormation stack
 
 #### Publishing the product on ADX
-At this point, dataset and the first revision is fully created on ADX. You are now ready to create the new product on ADX. Unfortunately, at this point ADX does not provide APIs to programmatically create Products so, you will have to create the product and link the dataset manually using AWS console. Once, the product is created, grab the `Product ID` from ADX console and re-run the pre-processing CloudFormation stack by passing all necessary parameters including the product id. Once the CloudFormation stack is successfully created, based on the CloudWatch scheduled rules, pre-processing Lambda function will automatically create new dataset revisions and publish it to ADX.
+At this point, dataset and the first revision is fully created on ADX. You are now ready to create the new product on ADX. Unfortunately, at this point ADX does not provide APIs to programmatically create Products so, you will have to create the product and link the dataset manually using AWS console. Once, the product is created, grab the `Product ID` from ADX console and re-run the pre-processing CloudFormation stack (using the AWS console or commandline - NOT the init script) by passing all necessary parameters including the product id. You will need the following parameter values to execute the stack:
+
+`DataSetArn	arn:aws:dataexchange:us-east-1:1234567890:data-sets/12345678909aabbccddffgghh`
+`DataSetName	bls-empl-hrs-earnings-natl`
+`ProductId	prod-xxxxxxxxxxxxxx`
+`Region	us-east-1`
+`S3Bucket s3_bucket_name`
+
+Once the CloudFormation stack is successfully created, based on the CloudWatch scheduled rules, pre-processing Lambda function will automatically create new dataset revisions (based on your cron expression) and publish it to ADX.
 
 ## Contact/Support Information
 - If you find any issues or have enhancements with this product, open up a GitHub [issue](https://github.com/rearc-data/publish-a-data-product-on-aws-data-exchange/issues) and we will gladly take a look at it. Better yet, submit a pull request. Any contributions you make are greatly appreciated :heart:.
