@@ -1,9 +1,8 @@
 # Getting started with publishing a data product on AWS Data Exchange
 
-### Targeted Audience
-Data Providers who are looking to publish their data products on the AWS Data Exchange service. 
+**Targeted Audience: Data Providers who are looking to publish their data products on the AWS Data Exchange service.**
 
-For starters, what is AWS Data Exchange?
+#### What is AWS Data Exchange?
 
 > [AWS Data Exchange](https://aws.amazon.com/data-exchange/) is a data marketplace that makes it easy for AWS customers to securely find, subscribe to, and use third-party data in the cloud.
 
@@ -22,7 +21,7 @@ As an example, we are using a free, publicly available open dataset for `COVID-1
 
 Clone this repository. 
 
-#### Directory Layout
+#### Directory Layout:
 
 ```bash
 .
@@ -48,7 +47,7 @@ Clone this repository.
 - [Python](https://www.python.org), [Pip](https://pypi.org/project/pip/), [JQ](https://stedolan.github.io/jq/), [AWS CLI V2](https://aws.amazon.com/cli/) and other related developer tools installed and configured on your local developer workstation
 - AWS credentials with appropriate permissions to create necessary ADX resources
 
-## 2. Execute init script
+## 2. Run the init script
 Once, you have the pre-processing code written/updated and tested locally, you can run the init shell script to move the pre-processing code to S3, create a dataset on ADX and create the first dataset revision. 
 
 The init script requires following parameters to be passed:
@@ -60,26 +59,27 @@ The init script requires following parameters to be passed:
 
 The init script also allows an optional `--profile` parameter to be passed in if you wish to use an alternative set of AWS credentials instead of your default profile.
 
-#### Here is how you can run the init script  
+#### Execute the script as follows: 
 `./init.sh --s3-bucket "rearc-data-provider" --dataset-name "covid-19-world-cases-deaths-testing" --product-name "COVID-19 - World Confirmed Cases, Deaths, and Testing" --product-id "blank" --region "us-east-1"`
 
-#### If the optional profile parameter is needed, add the following:
-`--profile "rearc-adx-alt"`
+If the optional profile parameter is needed, add parameter `--profile "rearc-adx-alt"`
 
-#### At a high-level, init script does following:
-- Zips the content of the pre-processing code
-- Moves the pre-processing zip file to S3
-- Creates a dataset on ADX
+The script does the following:
+- Zips up contents within the pre-processing folder
+- Copies this pre-processing zip file to S3
+- Creates a new dataset on ADX
 - Creates the pre-processing CloudFormation stack
-- Executes the pre-processing Lambda function that acquires the source dataset, copies the dataset to S3 and creates the first revision on ADX
+- Executes the pre-processing Lambda function which acquires the source dataset, copies it to S3 and creates the first revision on ADX
 - Destroys the CloudFormation stack
 
-#### Publishing the product on ADX
-At this point, dataset and the first revision is fully created on ADX. You are now ready to create the new product on ADX. Unfortunately, at this point ADX does not provide APIs to programmatically create Products so, you will have to create the product and link the dataset manually using AWS console. Once, the product is created, grab the `Product ID` from ADX console and re-run the pre-processing CloudFormation stack by passing all necessary parameters including the product id. Once the CloudFormation stack is successfully created, based on the CloudWatch scheduled rules, pre-processing Lambda function will automatically create new dataset revisions and publish it to ADX.
+## 3. Publish the product on ADX
+At this point, dataset and the first revision is available on ADX for us to create a product. Currently, ADX does not provide APIs to create Products; hence we will have to create a product and link it to the dataset manually using the AWS console. 
+
+Once the product is created, copy the `Product ID` from ADX console and re-run the pre-processing CloudFormation stack by passing all necessary parameters including the product id. Once the CloudFormation stack is successfully created, based on the CloudWatch Scheduled Events rule, pre-processing Lambda function will automatically create new dataset revisions and publish it to ADX!
 
 ## Contact/Support Information
-- If you find any issues or have enhancements with this product, open up a GitHub [issue](https://github.com/rearc-data/publish-a-data-product-on-aws-data-exchange/issues) and we will gladly take a look at it. Better yet, submit a pull request. Any contributions you make are greatly appreciated :heart:.
-- If you are interested in any other open datasets, please create a request on our project board [here](https://github.com/rearc-data/covid-datasets-aws-data-exchange/projects/1).
+- If you find any issues or have enhancements to this process, please open a GitHub [issue](https://github.com/rearc-data/publish-a-data-product-on-aws-data-exchange/issues) and we will gladly take a look at it. Better yet, submit a pull request. Any contributions you make are greatly appreciated :heart:.
+- If you are looking for specific open datasets currently not available on ADX, please submit a request on our project board [here](https://github.com/rearc-data/covid-datasets-aws-data-exchange/projects/1).
 - If you have any other questions or feedback, send us an email at data@rearc.io.
 
 ## About Rearc
