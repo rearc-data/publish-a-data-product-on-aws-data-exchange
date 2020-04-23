@@ -73,7 +73,7 @@ DATASET_REVISION_STATUS=$(aws dataexchange list-data-set-revisions --data-set-id
 if [[ $DATASET_REVISION_STATUS == "true" ]]
 then
   echo "Dataset revision completed successfully"
-  echo "Destroying the Cloudformation stack"
+  echo "Destroying the CloudFormation stack"
   aws cloudformation delete-stack --stack-name $CFN_STACK_NAME --region $REGION$PROFILE
 
   #check status of cloudformation stack delete action
@@ -81,8 +81,18 @@ then
   if [[ $? -eq 0 ]]
   then
     # Cloudformation stack deleted
-    echo "Cloudformation stack successfully deleted"
-    echo "Please create the ADX product manually and re-run the pre-processing cloudformation template with the right product id"
+    echo "CloudFormation stack successfully deleted"
+    echo ""
+    echo "Please manually create the ADX product and manually re-run the pre-processing CloudFormation template using the following params:"
+    echo ""
+    echo "S3Bucket: $S3_BUCKET"
+    echo "DataSetName: $DATASET_NAME"
+    echo "DataSetArn: $DATASET_ARN"
+    echo "Region: $REGION"
+    echo "S3Bucket: $S3_BUCKET"
+    echo ""
+    echo "For the ProductId param use the Product ID of the ADX product you just created"
+    echo ""
   else
     # Cloudformation stack deletion failed
     echo "Cloudformation stack deletion failed"
