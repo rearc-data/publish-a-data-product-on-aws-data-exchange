@@ -62,7 +62,7 @@ fi
 
 #invoking the pre-processing lambda function to create first dataset revision
 echo "invoking the pre-processing lambda function to create first dataset revision"
-LAMBDA_FUNCTION_NAME="source-revision-updates-for-${DATASET_NAME}"
+LAMBDA_FUNCTION_NAME="source-for-${DATASET_NAME}"
 # AWS CLI version 2 changes require explicitly declairing `--cli-binary-format raw-in-base64-out` for the format of the `--payload`
 LAMBDA_FUNCTION_STATUS_CODE=$(aws lambda invoke --function-name $LAMBDA_FUNCTION_NAME --invocation-type "RequestResponse" --payload '{ "test": "event" }' response.json --cli-binary-format raw-in-base64-out --region $REGION --query 'StatusCode' --output text$PROFILE)
 
