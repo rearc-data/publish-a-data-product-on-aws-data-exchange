@@ -91,7 +91,7 @@ then
     echo "Region: $REGION"
     echo "S3Bucket: $S3_BUCKET"
     echo ""
-    echo "For the ProductId param use the Product ID of the ADX product you just created"
+    echo "For the ProductId param use the Product ID of the ADX product"
     echo ""
   else
     # Cloudformation stack deletion failed
