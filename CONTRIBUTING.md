@@ -11,7 +11,7 @@ Below is a set of guidelines for contributing to any of the ADX product reposito
 ## I have a question and/or issue to report. What is the best way to contact Rearc?
 If you have an issue to report specific to the source code in this repository you can [open a GitHub issue](https://github.com/rearc-data/publish-a-data-product-on-aws-data-exchange/issues). Before opening an issue please review the existing suggestions to see if your idea is already there. If already present, please comment on the existing issue instead of making a new one.
 
-If you have a general inquiry about Rearc's data services you can send an email to data@rearc.io. We would love to hear any suggestion, question or request you have may. 
+If you have a general inquiry about Rearc's data services you can send an email to data@rearc.io. We would love to hear any suggestion, question or request you may have. 
 
 ## What should I know before I get started?
 
@@ -19,4 +19,4 @@ If you have a general inquiry about Rearc's data services you can send an email 
 > [AWS Data Exchange](https://aws.amazon.com/data-exchange/) is a data marketplace that makes it easy for AWS customers to securely find, subscribe to, and use third-party data in the cloud.
 
 #### Who is Rearc?
-[Rearc](https://www.rearc.io) is a data provider and one of the launch partners for AWS Data Exchange. Products published by Rearc on ADX can be found [here](https://aws.amazon.com/marketplace/search/results?page=1&filters=VendorId&VendorId=a8a86da2-b2d1-4fae-992d-03494e90590b&searchTerms=rearc&category=d5a43d97-558f-4be7-8543-cce265fe6d9d). On ADX we provide a pipeline to automate the (1) sourcing of data, (2) transforming of data to make it useful for consumers, (3) creating a dataset on ADX, (4) creating automatic revisions and, (5) finally publishing the data product.
+[Rearc](https://www.rearc.io) is a data provider and one of the launch partners for AWS Data Exchange. Products published by Rearc on ADX can be found [here](https://aws.amazon.com/marketplace/search/results?page=1&filters=VendorId&VendorId=a8a86da2-b2d1-4fae-992d-03494e90590b&searchTerms=rearc&category=d5a43d97-558f-4be7-8543-cce265fe6d9d). On ADX we provide a pipeline to automate the (1) sourcing of data, (2) transformation of data to make it useful for consumers, (3) creation of a dataset on ADX, (4) creation of automatic revisions and, (5) finally publish the data product.
