@@ -1,4 +1,4 @@
-# Contributing To A Rearc AWS Data Exchange Product
+# Contributing to a Rearc AWS Data Exchange product
 
 🎉🥳 First of all, **THANK YOU** for being interested in contributing to one of our projects 🎉🥳
 
@@ -8,7 +8,7 @@ You can learn about Rearc’s data services by visiting [https://www.rearc.io/da
 
 Below is a set of guidelines for contributing to any of the ADX product repositories available on the [Rearc Data GitHub account](https://github.com/rearc-data).
 
-#### Table Of Contents
+#### Table of Contents
 - [I have a question and/or issue to report. What is the best way to contact Rearc?](#i-have-a-question-andor-issue-to-report-what-is-the-best-way-to-contact-rearc)
 - [What should I know before getting started?](#what-should-i-know-before-getting-started)
   * [What is AWS Data Exchange?](#what-is-aws-data-exchange)
@@ -18,8 +18,8 @@ Below is a set of guidelines for contributing to any of the ADX product reposito
   * [What tools are you using throughout your ADX Products?](#what-tools-are-you-using-throughout-your-adx-products)
   * [Directory Layout](#directory-layout)
 - [How can I contribute?](#how-can-i-contribute)
-  * [Report An Issue/Bug](#report-an-issuebug)
-  * [Submit An Improvement/Suggestion](#submit-an-improvementsuggestion)
+  * [Report an Issue/Bug](#report-an-issuebug)
+  * [Submit an Improvement/Suggestion](#submit-an-improvementsuggestion)
   * [Pull Request](#pull-request)
 - [Additional Resources](#additional-resources)
 
@@ -34,7 +34,7 @@ If you have a general inquiry about Rearc's data services you can send an email 
 > [AWS Data Exchange](https://aws.amazon.com/data-exchange/) is a data marketplace that makes it easy for AWS customers to securely find, subscribe to, and use third-party data in the cloud.
 
 #### Who is Rearc?
-[Rearc](https://www.rearc.io) is a data provider and one of the launch partners for AWS Data Exchange. Products published by Rearc on ADX can be found [here](https://aws.amazon.com/marketplace/seller-profile?id=a8a86da2-b2d1-4fae-992d-03494e90590b). On ADX we provide a pipeline to automate the (1) sourcing of data, (2) transform data to make it useful for consumers, (3) create a dataset for public consumption on ADX, (4) enact automatic revisions of the dataset and, (5) finally publish the data product.
+[Rearc](https://www.rearc.io) is a data provider and one of the launch partners for AWS Data Exchange. Products published by Rearc on ADX can be found [here](https://aws.amazon.com/marketplace/seller-profile?id=a8a86da2-b2d1-4fae-992d-03494e90590b). On ADX we provide a pipeline to automate the (1) sourcing of data, (2) transformation of data to make it useful to subscribers, (3) creation of a dataset for public consumption, (4) automatic revisions of the dataset and, (5) publishing of the data product through ADX.
 
 #### What are Rearc's goals for ADX?
 We at Rearc are working tirelessly to lend greater accessibility to interesting and/or important datasets across various disciplines and sources. We realize the direct integration of the ADX, along with other AWS services, facilitates a convenient manner for our subscribers to consume data. For data providers we can supply an automation pipeline, leveraging the AWS platform, to ensure the ubiquity of your data for your consumers.
@@ -66,12 +66,12 @@ For more details on the technologies and directory layout used in our ADX produc
 
 ## How can I contribute?
 
-#### Report An Issue/Bug
+#### Report an Issue/Bug
 If you are experiencing an issue with the ADX product featured in this repository, the best way to contact us would be through [opening a GitHub issue](https://github.com/rearc-data/publish-a-data-product-on-aws-data-exchange/issues) in this repository.
 
 When opening an issue please **be as descriptive as possible**. If relevant please **provide information regarding your use-case, development configuration and environment**. The more specific you can be the easier it will be for us to identify and address the situation.
 
-#### Submit An Improvement/Suggestion
+#### Submit an Improvement/Suggestion
 If you have a suggestion for improving the ADX product included in this repository you are welcomed to [open a GitHub issue](https://github.com/rearc-data/publish-a-data-product-on-aws-data-exchange/issues) in this repository. While we cannot guarantee every suggestion will be implemented into our products, we will get back to you either way.
 
 If you have any general feedback or suggestions for our ADX products, please contact us at data@rearc.io.
