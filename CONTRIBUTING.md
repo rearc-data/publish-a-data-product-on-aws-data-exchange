@@ -40,10 +40,10 @@ If you have a general inquiry about Rearc's data services you can send an email 
 We at Rearc are working tirelessly to lend greater accessibility to interesting and/or important datasets across various disciplines and sources. We realize the direct integration of the ADX, along with other AWS services, facilitates a convenient manner for our subscribers to consume data. For data providers we can supply an automation pipeline, leveraging the AWS platform, to ensure the ubiquity of your data for your consumers.
 
 #### What is Rearc's philosophy towards dataset formats?
-We try as much as possible to preserve of integrity of data we provide through ADX, and most of the time this means delivering datasets exactly as they were presented from their source. Sometimes we make minor alterations to datasets to provide wider usability for ADX subscribers (e.g. adjusting CSV files for SQL column naming conventions). For situations where we are unable to maintain the original data file format (often due to a request from the data consumer or a discrepancy in a data source's delivery pipeline), we try to limit the extent of needed transformations as much as possible.
+We try as much as possible to preserve the integrity of data we provide through ADX, and most of the time this means delivering datasets exactly as they were presented from their source. Sometimes we make minor alterations to datasets to provide wider usability for ADX subscribers (e.g. adjusting CSV files for SQL column naming conventions). For situations where we are unable to maintain the original data file format (often due to a request from the data consumer or a discrepancy in a source's delivery pipeline), we try to limit the extent of needed transformations as much as possible.
 
 #### What tools are you using throughout your ADX Products?
-- On our local devices we have chosen to use a combination of [Python 3](https://www.python.org), [Pip](https://pypi.org/project/pip/), [JQ](https://stedolan.github.io/jq/), [AWS CLI V2](https://aws.amazon.com/cli/) and other related developer tools for deployment. The specific tools utilized varies on a project-by-project basis. The Python portions of our source code could be adapted into another language with a supported AWS Lambda runtime.
+- On our local devices we have chosen to use a combination of [Python 3](https://www.python.org), [Pip](https://pypi.org/project/pip/), [JQ](https://stedolan.github.io/jq/), [AWS CLI V2](https://aws.amazon.com/cli/) and other related developer tools. The specific tools utilized varies on a project-by-project basis. The Python portions of our source code can be adapted into another language with a supported AWS Lambda runtime.
 - Most of our ADX projects limit the usage of packages to [The Python Standard Library](https://docs.python.org/3.7/library/index.html). By default, Python provides a robust set of tools to access and manipulate popular data file formats, and we exploit these features to their fullest capacity. Frequent packages we used when interacting with datasets include [os](https://docs.python.org/3.7/library/os.html), [urllib](https://docs.python.org/3.7/library/urllib.html), [json](https://docs.python.org/3.7/library/json.html) and [csv](https://docs.python.org/3.7/library/csv.html). We also utilize [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html), AWS's ASK for Python, which is automatically bundled into AWS Lambda's Python runtimes.
 - We are creating various AWS resources throughout the process of deploying and maintaining our ADX projects, including [Data Exchange](https://docs.aws.amazon.com/data-exchange/), [S3](https://docs.aws.amazon.com/s3/), [Lambda](https://docs.aws.amazon.com/lambda/) and [EventBridge](https://docs.aws.amazon.com/eventbridge/). The creation of most of the needed resources is streamlined by the [CloudFormation](https://docs.aws.amazon.com/cloudformation/) template included with this project, ([pre-processing-cfn.yaml](./pre-processing/pre-processing-cfn.yaml)).
 
@@ -62,7 +62,7 @@ While the exact directory layout for one of our ADX projects can vary on a proje
 ├── README.md
 └── .gitignore
 ```
-For more details on our directory layout and included files please visit our repository [Getting started with publishing a data product on AWS Data Exchange](https://github.com/rearc-data/publish-a-data-product-on-aws-data-exchange).
+For more details on the technologies and directory layout used in our ADX products, please visit [Getting started with publishing a data product on AWS Data Exchange](https://github.com/rearc-data/publish-a-data-product-on-aws-data-exchange).
 
 ## How can I contribute?
 
@@ -77,9 +77,9 @@ If you have a suggestion for improving the ADX product included in this reposito
 If you have any general feedback or suggestions for our ADX products, please contact us at data@rearc.io.
 
 #### Pull Request
-One of the major reasons we have made our ADX project repositories public is because we want to better maintain and improve the quality of our data products. We believe our subscribers (you) can play a critical role in this process, and actively encourage you to fork, branch and open a pull request on this repository. 
+One of the major reasons we have made our ADX project repositories public is because we want to better maintain and improve the quality of our data products. We believe our subscribers (you) can play a critical role in this process, and we actively encourage you to fork, branch and open a pull request on this repository. 
 
-Before opening a pull request please familiarize yourself with the tools and directory layout used in this repository. If you are looking to improve the project's included datasets you should direct yourself to the [`pre-processing/pre-processing-code`](./pre-processing/pre-processing-code) folder, as this is where the gathering and transforming of data occurs.
+Before opening a pull request please familiarize yourself with the [tools](#what-tools-are-you-using-throughout-your-adx-products) and [directory layout](#directory-layout) used in this repository. If you are looking to improve the project's included datasets you should direct yourself to the [`pre-processing/pre-processing-code`](./pre-processing/pre-processing-code) folder, as this is where the gathering and transforming of data occurs.
 
 When you are ready to open a pull request, please **be as descriptive as possible** regarding all improvements you have made. After reviewing your pull request, we may ask you to complete additional changes before your pull request is accepted. If we are unable to accept your pull request, we will make sure to offer context for our decision.
 
