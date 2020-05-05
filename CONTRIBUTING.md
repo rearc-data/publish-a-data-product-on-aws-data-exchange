@@ -13,7 +13,7 @@ Below is a set of guidelines for contributing to any of the ADX product reposito
 - [What should I know before getting started?](#what-should-i-know-before-getting-started)
   * [What is AWS Data Exchange?](#what-is-aws-data-exchange)
   * [Who is Rearc?](#who-is-rearc)
-  * [What are rearc's goals for ADX?](#what-are-rearcs-goals-for-adx)
+  * [What are Rearc's goals for ADX?](#what-are-rearcs-goals-for-adx)
   * [What is Rearc's philosophy towards dataset formats?](#what-is-rearcs-philosophy-towards-dataset-formats)
   * [What tools are you using throughout your ADX Products?](#what-tools-are-you-using-throughout-your-adx-products)
   * [Directory Layout](#directory-layout)
@@ -36,7 +36,7 @@ If you have a general inquiry about Rearc's data services you can send an email 
 #### Who is Rearc?
 [Rearc](https://www.rearc.io) is a data provider and one of the launch partners for AWS Data Exchange. Products published by Rearc on ADX can be found [here](https://aws.amazon.com/marketplace/seller-profile?id=a8a86da2-b2d1-4fae-992d-03494e90590b). On ADX we provide a pipeline to automate the (1) sourcing of data, (2) transform data to make it useful for consumers, (3) create a dataset for public consumption on ADX, (4) enact automatic revisions of the dataset and, (5) finally publish the data product.
 
-#### What are rearc's goals for ADX?
+#### What are Rearc's goals for ADX?
 We at Rearc are working tirelessly to lend greater accessibility to interesting and/or important datasets across various disciplines and sources. We realize the direct integration of the ADX, along with other AWS services, facilitates a convenient manner for our subscribers to consume data. For data providers we can supply an automation pipeline, leveraging the AWS platform, to ensure the ubiquity of your data for your consumers.
 
 #### What is Rearc's philosophy towards dataset formats?
