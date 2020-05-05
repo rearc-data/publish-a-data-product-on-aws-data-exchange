@@ -52,10 +52,17 @@ For more details on our directory layout and included files please visit our rep
 ## How Can I Contribute?
 
 #### Report An Issue/Bug
+If you are experiencing an issue with the ADX product featured in this repository, the best way to contact us would be through [opening a GitHub issue](https://github.com/rearc-data/publish-a-data-product-on-aws-data-exchange/issues) in this repository.
+
+When opening an issue please **be as descriptive as possible**. If relevant please **provide information regarding your use-case, development configuration and environment**. The more specific you can be the easier it will be for us to identify and address the situation.
 
 #### Submit An Improvement/Suggestion
+If you have a suggestion for improving the ADX product included in this repository you are welcomed to [open a GitHub issue](https://github.com/rearc-data/publish-a-data-product-on-aws-data-exchange/issues) in this repository. While we cannot guarantee every suggestion will be implemented into our products, we will get back to you either way.
+
+If you have any general feedback or suggestions for our ADX products, please contact us at data@rearc.io.
 
 #### Pull Request
 
-## Contact Us
+
+
 
